@@ -1,28 +1,59 @@
+<div class="container">
+
 <%= form_for @sea do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <!-- <%= f.label :name %> -->
+  <p>Name:
+  <%= f.text_field :name, class:"form-control" %>
+  </p>
 
-  <%= f.label :temperature %>
-  <%= f.number_field :temperature %>
+  <p>Temperature:
+    <%= f.number_field :temperature, class:"form-control" %>
+  </p>
 
-  <%= f.label :bio %>
-  <%= f.text_area :bio %>
+  <p>Bio:
+    <%= f.text_area :bio, class:"form-control" %>
+  </p>
 
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
+  <p>Image URL:
+    <%= f.text_field :image_url, class:"form-control" %>
+  </p>
 
-  <%= f.label :mood %>
-  <%= f.text_field :mood %>
+  <p>Mood:
+    <%= f.text_field :mood, class:"form-control" %>
+  </p>
 
-  <%= f.label :favorite_color %>
-  <%= f.text_field :favorite_color %>
+  <p>Favorite Color:
+    <%= f.text_field :favorite_color, class:"form-control" %>
+  </p>
 
-  <%= f.label :scariest_creature %>
-  <%= f.text_field :scariest_creature %>
+  <p>Scariest Creature:
+    <%= f.text_field :scariest_creature, class:"form-control" %>
+  </p>
 
-  <%= f.label :has_mermaids %>
-  <%= f.check_box :has_mermaids %>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :has_mermaids, class:"checkbox" %>Has mermaids
+    </label>
+  </div>
 
-  <%=  f.submit %>
+  <%=  f.submit "Submit", class:"form-control btn btn-info" %>
 
   <% end %>
+
+    <div class="text-center row" style="margin: 1em">
+      <div class="col-sm-1">
+        <button class="btn btn-info" style="margin: 0 auto"><a href="/seas/<%=@sea.id%>">Back</a></button>
+      </div>
+      <div class="col-sm-1">
+      <button class="btn btn-info" style="margin: 0 auto"><a class="btn-info" href="/seas">All Seas</a></button>
+      </div>
+      <div class="col-sm-9">
+      </div>
+      <div class="col-sm-1">
+      <%= form_for @sea, :html => { :method => :delete, :remote => true } do |f| %>
+        <%=  f.submit "Delete", class:"btn btn-danger" %>
+      <% end %>
+      </div>
+    </div>
+
+  </div>
